@@ -1,4 +1,96 @@
 * {
     margin: 0px;
     padding: 0px;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+ul {
+    list-style: none;
+}
+
+/* *************** Header ***************** */
+.header {
+    background: #18A0FB;
+    height: 15vh;
+}
+.header nav {
+    width: 85%;
+    height: inherit;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.header nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.header nav ul li, span {
+    margin-right: 10px;
+}
+.header nav ul li a:hover {
+    color: rgb(208, 208, 208);
+}
+
+
+
+/* *************** Trendings ***************** */
+.trending {
+    margin-top: 40px;
+}
+.contentTrending {
+    background: #E9E9E9;
+    border-radius: 50px;
+}
+.trending h1, .contentTrending .items, .BTNs {
+    width: 85%;
+    margin: 0 auto;
+}
+.items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow-x: auto;
+    text-align: center;
+}
+.item {
+    margin: 10px 20px;
+    background: #F4F4F4;
+}
+.item, .item img {
+    border-radius: 20px;
+    height: auto;
+}
+.item h5 {
+    padding: 10px;
+}
+
+/* *************** App ***************** */
+.AnMa {
+    margin: 40px 0px 30px 0px
+}
+.BTNs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.BTNs button {
+    padding: 10px;
+    background: #18A0FB;
+    color: #fff;
+    font-size: 22px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
 }

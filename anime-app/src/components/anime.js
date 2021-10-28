@@ -1,45 +1,49 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
 
 function Anime() {
 
-  const[data , setData]=useState('')
+  const[data , setData] = useState()
+  const[type , setType] = useState("anime")
 
-   async function getInfo (){
-     const data = await axios.get('https://kitsu.io/api/edge/trending/anime')
-     console.log(data)
-     console.log(data.data)
-     console.log(data.data.data)
-     setData(data.data.data)
-     
+   useEffect(() => {
+     async function getInfo() {
+       try {
+         const res = await axios.get(`https://kitsu.io/api/edge/${type}`)
+         setData(res.data.data)
+       } catch (err) {
+         console.log(err);
+       }
+     }
 
-   } 
+     getInfo()
+   }, [type])
 
 
-
-
-
+  
 
 
 
   return (
-    <div className="App">
+    <div className="AnMa" id="AnMa">
 
-    <button onClick={getInfo} >Anime</button>
+      <div className="BTNs">
+        <button onClick={() => setType("anime")} >Anime</button>
+        <button onClick={() => setType("manga")} >Mange</button>
+      </div>
     
-    {data && 
-      <>
-        {data.map((ele)=> (
-          <div>
-          <h1>{ele.attributes.canonicalTitle}</h1>
-          <img src={ele.attributes.posterImage.large} />
-          </div>
-        ))}
-      </>
-    }
-
-      
+    
+      <div className="items">
+        {data && 
+            (data.map((ele)=> (
+              <div className="item">
+                <img src={ele.attributes.posterImage.small} />
+                <h5>{ele.attributes.canonicalTitle}</h5>
+              </div>
+            )))
+        }
+      </div>
     </div>
   );
 }
